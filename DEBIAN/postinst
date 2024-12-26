@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if ! id "flask-app" &>/dev/null; then
+    useradd -r -s /bin/false flask-app
+fi
+
+chown -R flask-app:flask-app /usr/local/lib/flaskapp
+chown -R flask-app:flask-app /var/log/flaskapp
+chown -R flask-app:flask-app /var/lib/flaskapp
+
+
+
+if systemctl enable flaskapp.service; then
+    echo "flaskapp.service başarıyla etkinleştirildi."
+else
+    echo "flaskapp.service etkinleştirilemedi." >&2
+    exit 1
+fi
+
+if systemctl start flaskapp.service; then
+    echo "flaskapp.service başarıyla başlatıldı."
+else
+    echo "flaskapp.service başlatılamadı." >&2
+    exit 1
+fi

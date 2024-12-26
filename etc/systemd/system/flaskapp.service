@@ -1,0 +1,17 @@
+[Unit]
+Description=Flask RESTful API
+After=network.target
+
+[Service]
+User=flask-app
+Group=flask-app
+ReadWritePaths=/var/log/flaskapp /var/lib/flaskapp
+WorkingDirectory=/usr/local/lib/flaskapp
+ExecStart=/usr/bin/python3 /usr/local/lib/flaskapp/flaskapp.py
+Restart=always
+StandardOutput=file:/var/log/flaskapp/flaskapp.log
+StandardError=file:/var/log/flaskapp/flaskapp-error.log
+
+
+[Install]
+WantedBy=multi-user.target

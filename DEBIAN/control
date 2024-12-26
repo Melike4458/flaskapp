@@ -1,0 +1,8 @@
+Package: flaskapp
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: all
+Depends: python3, python3-flask, python3-pandas
+Maintainer: Melike orhan <orhanmelike345@gmail.com>
+Description: Rest API Uygulamasi
