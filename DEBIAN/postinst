@@ -9,6 +9,7 @@ chown -R flask-app:flask-app /var/log/flaskapp
 chown -R flask-app:flask-app /var/lib/flaskapp
 
 
+apt-get update apt-get install -y python3-flask python3-pandas
 
 if systemctl enable flaskapp.service; then
     echo "flaskapp.service başarıyla etkinleştirildi."
